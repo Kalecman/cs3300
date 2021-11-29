@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
+  
   pending "add some scenarios (or delete) #{__FILE__}"
 end
 
@@ -8,8 +9,33 @@ end
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
+
+  context "Login" do
+    scenario "Should log in" do
+      visit root_path
+    click_link "Sign up"
+    within("form") do
+     fill_in "Email", with: "abc@tess.com"
+     fill_in "Password", with: "123456"
+     fill_in "Password confirmation", with: "123456"
+     click_button "Sign up"
+ 
+    end
+
+  end
+  end
+
   context "Create new project" do
+    
     before(:each) do
+      visit root_path
+    click_link "Sign up"
+    within("form") do
+     fill_in "Email", with: "abc@tess.com"
+     fill_in "Password", with: "123456"
+     fill_in "Password confirmation", with: "123456"
+     click_button "Sign up"
+    end
       visit new_project_path
       within("form") do
         fill_in "Title", with: "Test title"
@@ -31,6 +57,14 @@ RSpec.feature "Projects", type: :feature do
   context "Update project" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
+      visit root_path
+    click_link "Sign up"
+    within("form") do
+     fill_in "Email", with: "abc@tess.com"
+     fill_in "Password", with: "123456"
+     fill_in "Password confirmation", with: "123456"
+     click_button "Sign up"
+    end
       visit edit_project_path(project)
     end
 
@@ -54,6 +88,15 @@ RSpec.feature "Projects", type: :feature do
   context "Remove existing project" do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
+      visit root_path
+    click_link "Sign up"
+    within("form") do
+     fill_in "Email", with: "abc@tess.com"
+     fill_in "Password", with: "123456"
+     fill_in "Password confirmation", with: "123456"
+     click_button "Sign up"
+    end
+    
       visit projects_path
       click_link "Destroy"
       expect(page).to have_content("Project was successfully destroyed")
