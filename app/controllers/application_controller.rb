@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_model!
+    before_action :authenticate_model!, only: [ :create, :update, :destroy]
 end
