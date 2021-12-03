@@ -17,14 +17,13 @@
 
 
 
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-dark bg-dark">
  <a class="navbar-brand" href="/">Kaleb Chanza Portfolio</a>
  <a class="nav-link" href="#"><% if model_signed_in? %>
        Logged in as <strong><%= current_model.email %></strong>.
        <%= link_to 'Edit profile', edit_model_registration_path, :class => 'navbar-link' %> |
        <%= link_to "Logout", destroy_model_session_path, method: :delete, :class => 'navbar-link'  %>
      <% else %>
-       <%= link_to "Sign up", new_model_registration_path, :class => 'navbar-link'  %> |
        <%= link_to "Login", new_model_session_path, :class => 'navbar-link'  %>
      <% end %></a>
 </nav>

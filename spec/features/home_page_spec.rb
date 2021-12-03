@@ -10,6 +10,7 @@ require "rails_helper"
 RSpec.feature "Visiting the homepage", type: :feature do
   scenario "The visitor should see projects" do
     visit root_path
+    click_link "Login"
     click_link "Sign up"
     within("form") do
      fill_in "Email", with: "abc@tess.com"

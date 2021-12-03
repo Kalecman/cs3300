@@ -13,6 +13,7 @@ RSpec.feature "Projects", type: :feature do
   context "Login" do
     scenario "Should log in" do
       visit root_path
+      click_link "Login"
     click_link "Sign up"
     within("form") do
      fill_in "Email", with: "abc@tess.com"
@@ -29,6 +30,7 @@ RSpec.feature "Projects", type: :feature do
     
     before(:each) do
       visit root_path
+      click_link "Login"
     click_link "Sign up"
     within("form") do
      fill_in "Email", with: "abc@tess.com"
@@ -58,6 +60,7 @@ RSpec.feature "Projects", type: :feature do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
       visit root_path
+      click_link "Login"
     click_link "Sign up"
     within("form") do
      fill_in "Email", with: "abc@tess.com"
@@ -89,6 +92,7 @@ RSpec.feature "Projects", type: :feature do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
       visit root_path
+      click_link "Login"
     click_link "Sign up"
     within("form") do
      fill_in "Email", with: "abc@tess.com"
