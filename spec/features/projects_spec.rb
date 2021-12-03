@@ -11,6 +11,14 @@ require 'rails_helper'
 RSpec.feature "Projects", type: :feature do
 
   context "Login" do
+
+    scenario "Should fail" do
+      visit root_path
+      click_link "Login"
+     click_button "Log in"
+     expect(page).to have_content("Sign up")
+    end
+
     scenario "Should log in" do
       visit root_path
       click_link "Login"
@@ -20,9 +28,8 @@ RSpec.feature "Projects", type: :feature do
      fill_in "Password", with: "123456"
      fill_in "Password confirmation", with: "123456"
      click_button "Sign up"
- 
     end
-
+    expect(page).to have_content("Welcome! You have signed up successfully")
   end
   end
 
@@ -47,7 +54,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "should be successful" do
       fill_in "Description", with: "Test description"
       click_button "Create Project"
-      expect(page).to have_content("Project was successfully created")
+      expect(page).to have_content("Project was successfully created.")
     end
 
     scenario "should fail" do
