@@ -19,12 +19,16 @@
 
  <nav class="navbar navbar-dark bg-dark">
  <a class="navbar-brand" href="/">Kaleb Chanza Portfolio</a>
- <a class="nav-link" href="#"><% if model_signed_in? %>
+ <a class="nav-link" href="#">
+    <div class="form-inline my-2 my-lg-0">
+    <% if model_signed_in? %>
        Logged in as <strong><%= current_model.email %></strong>.
-       <%= link_to 'Edit profile', edit_model_registration_path, :class => 'navbar-link' %> |
-       <%= link_to "Logout", destroy_model_session_path, method: :delete, :class => 'navbar-link'  %>
+       <a class="btn btn-outline-success my-2 my-sm-0" <%= link_to 'Edit profile', edit_model_registration_path, :class => 'navbar-link' %>></a> 
+       <a class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Logout", destroy_model_session_path, method: :delete, :class => 'navbar-link'  %>></a>
      <% else %>
-       <%= link_to "Login", new_model_session_path, :class => 'navbar-link'  %>
+     
+     <a class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Login", new_model_session_path, :class => 'navbar-link'  %>></a>
+     </div>
      <% end %></a>
 </nav>
   

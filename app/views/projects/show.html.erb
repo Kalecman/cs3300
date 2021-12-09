@@ -18,7 +18,7 @@
 
 <body>
 
-<p id="notice"><%= notice %></p>
+
 
 <main role="main">
 
@@ -37,8 +37,8 @@
 
 
 
-    <%= link_to 'Edit', edit_project_path(@project) %> |
-    <%= link_to 'Back', projects_path %>
+    <a class="btn btn-secondary" <%= link_to 'Edit', edit_project_path(@project) %></a> 
+    <a class="btn btn-secondary"<%= link_to 'Back', projects_path %></a>
    </div>
 </div>
 
