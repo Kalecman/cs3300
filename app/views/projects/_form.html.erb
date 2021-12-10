@@ -15,8 +15,10 @@
 <!-- Custom styles for this template -->
 <link href="signin.css" rel="stylesheet">
 </head>
+
 <body class="text-center">
-   
+
+<div class="form-signin">
 <%= form_with(model: project, local: true) do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
@@ -35,6 +37,7 @@
     <%= form.text_field :title %>
   </div>
 
+  
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
@@ -45,7 +48,7 @@
   </div>
 <% end %>
 
-
+</div>
 
 
 

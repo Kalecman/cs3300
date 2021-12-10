@@ -36,8 +36,11 @@
     <p id="notice"><%= notice %></p>
 
 
-
+    <% if model_signed_in? %>
     <a class="btn btn-secondary" <%= link_to 'Edit', edit_project_path(@project) %></a> 
+     <% else %>
+       
+     <% end %>
     <a class="btn btn-secondary"<%= link_to 'Back', projects_path %></a>
    </div>
 </div>
